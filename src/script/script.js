@@ -152,6 +152,7 @@ $(document).on("click", "#btnEdit", (e) => {
     method: "get",
     url: `http://127.0.0.1:4040/appointment/${e.target.name}`,
     success: (data) => {
+      console.log(data);
       $("#appointmentTitle").val(data[0].title.replaceAll(".", " "));
       $("#inputUserDiscription").val(data[0].description);
       $("#inputDate").val(data[0].date.slice(0, data[0].date.indexOf("T")));
