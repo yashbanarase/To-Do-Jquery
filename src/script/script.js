@@ -59,8 +59,10 @@ function LoadDashboard() {
 
 $(() => {
   if ($.cookie("userId")) {
+    $("#goToHome").css("display", "block");
     LoadDashboard();
   } else {
+    $("#goToHome").css("display", "none");
     LoadPage("home.html");
   }
 });
@@ -100,6 +102,7 @@ $(document).on("click", "#loginUser", () => {
       if (userDetail) {
         if (userDetail.password === password) {
           $.cookie("userId", user_id, { expires: 2 });
+          $("#goToHome").css("display", "block");
           LoadDashboard();
         } else {
           alert("Invalid Password");
@@ -197,5 +200,6 @@ $(document).on("click", "#btnDelete", (e) => {
 });
 $(document).on("click", "#goToHome", () => {
   $.removeCookie("userId");
+  $("#goToHome").css("display", "none");
   LoadPage("home.html");
 });
