@@ -174,9 +174,9 @@ $(document).on("click", "#btnEdit", (e) => {
       data: appointment,
       success: () => {
         alert("Appointment Edited");
+        LoadDashboard();
       },
     });
-    LoadDashboard();
   });
 });
 $(document).on("click", "#cancelAppointment", () => {
